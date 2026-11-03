@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-main: #F7F7F4;
+    --surface: #FFFFFF;
+    --surface-secondary: #F0F1EC;
+    --text-primary: #242A27;
+    --text-secondary: #777F79;
+    --text-muted: #A0A69F;
+    --brand-forest: #315C4C;
+    --brand-sage: #8FA995;
+    --brand-soft: #EAF1EB;
+    --warm-accent: #B68B5C;
+    --warm-soft: #F6F0E7;
+    --border-color: #E8EAE5;
+  }
+
+  body {
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Tabular numbers for financial & numeric figures */
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D8DBD4;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #A0A69F;
+}
+
+/* Print Styles for 80mm Thermal Receipt and A4 Invoices */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+
+  #printable-receipt,
+  #printable-receipt * {
+    visibility: visible;
+  }
+
+  #printable-receipt {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 80mm !important;
+    max-width: 80mm !important;
+    padding: 2mm 3mm !important;
+    margin: 0 !important;
+    font-family: 'Courier New', Courier, monospace !important;
+    color: #000000 !important;
+    background: #ffffff !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+
+  #printable-invoice,
+  #printable-invoice * {
+    visibility: visible;
+  }
+
+  #printable-invoice {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 15mm !important;
+    color: #000000 !important;
+    background: #ffffff !important;
+    box-shadow: none !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+}
+
